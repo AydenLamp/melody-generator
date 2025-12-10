@@ -25,11 +25,11 @@ public class Main
     // Handles command line arguments to configure generation modes.
     public static void main (String [] args) throws Exception
     {
-        new File(OUTPUT_DIR).mkdirs(); // Ensure output directory exists
+        new File(OUTPUT_DIR).mkdirs(); 
         // Clear the trigrams file
         new PrintWriter(TRIGRAMS_FILE).close();
 
-        // Convert the input melody to MIDI for reference
+        // Convert the input melody to MIDI for comparison
         System.out.println("Converting input melody to MIDI...");
         List<MidiWriter.NoteEvent> inputEvents = MidiWriter.parseMelodyFile(MELODY_FILE);
         MidiWriter.writeMidi(inputEvents, OUTPUT_DIR + "/melody.mid", 120);
@@ -130,7 +130,7 @@ public class Main
         String txtFile = OUTPUT_DIR + "/" + baseName + ".txt";
         String midFile = OUTPUT_DIR + "/" + baseName + ".mid";
         
-        // MelodyGenerator now returns a fully formatted string with chords and bar lines.
+        // MelodyGenerator returns a fully formatted string with chords and bar lines.
         PrintWriter out = new PrintWriter(new FileWriter(txtFile));
         out.print(passage);
         out.close();

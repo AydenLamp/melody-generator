@@ -64,10 +64,10 @@ public class MelodyGenerator
     }
 
     // Generates a full melody, tokinizing notes into [note][octive]:[rhythm] format
-	// starts with "r:8 r:8" (two eighth note rests) when generating the first note
+	// starts with "r:4 r:8" (quarter rest, eighth rest) which is a common pickup in the source data
 	// For this method, we call generateMelody with getNextWordFromMap directly
     public String generateMelodyStandard(Map<String, Map<String, Integer>> freq, List<String> chords) {
-        return generateMelody(chords, "r:8 r:8", (bigram, chord) -> 
+        return generateMelody(chords, "r:4 r:8", (bigram, chord) -> 
             getNextWordFromMap(freq, bigram)
         );
     }
@@ -75,7 +75,7 @@ public class MelodyGenerator
     // Generates a fully melody by tokenizing into [note]:[rhythm] format
 	// Pass a function that removes octive information before calling getNextWordFromMap
     public String generateMelodyOctaveIgnorant(Map<String, Map<String, Integer>> freq, List<String> chords) {
-        return generateMelody(chords, "r:8 r:8", (bigram, chord) -> {
+        return generateMelody(chords, "r:4 r:8", (bigram, chord) -> {
             String[] words = bigram.split(" ");
             String key = MusicUtils.stripOctave(words[0]) + " " + MusicUtils.stripOctave(words[1]);
             String nextWord = getNextWordFromMap(freq, key);
@@ -92,7 +92,7 @@ public class MelodyGenerator
 	// a relative token is the interval between the note and the pitch class of the root of the current chord
 	// measured as semitones above C
     public String generateMelodyRelativeScaleDegree(Map<String, Map<String, Integer>> freq, List<String> chords) {
-        return generateMelody(chords, "r:8 r:8", (bigram, chord) -> {
+        return generateMelody(chords, "r:4 r:8", (bigram, chord) -> {
             String[] words = bigram.split(" ");
             // get the number of semitones from C up to the root of the current chord
             int rootPC = MusicUtils.getChordRootPC(chord);
@@ -116,7 +116,7 @@ public class MelodyGenerator
     // Generates a full melody using separated rhythm and pitch maps
 	// where notes are tokinized to contain both rhythm and pitch information
     public String generateMelodySeparated(Map<String, Map<String, Integer>> freqRhythm, Map<String, Map<String, Integer>> freqPitch, List<String> chords) {
-        return generateMelody(chords, "r:8 r:8", (bigram, chord) -> 
+        return generateMelody(chords, "r:4 r:8", (bigram, chord) -> 
             generateNextNoteSeparated(bigram, freqRhythm, freqPitch, false)
         );
     }
@@ -124,7 +124,7 @@ public class MelodyGenerator
     // Generates a full melody using separated rhythm and octave-ignorant pitch maps.
 	// where pitches are tokenized by their pitch class and rhythm but octave is assigned later
     public String generateMelodySeparatedIgnorant(Map<String, Map<String, Integer>> freqRhythm, Map<String, Map<String, Integer>> freqPitchIgnorant, List<String> chords) {
-        return generateMelody(chords, "r:8 r:8", (bigram, chord) -> 
+        return generateMelody(chords, "r:4 r:8", (bigram, chord) -> 
             generateNextNoteSeparated(bigram, freqRhythm, freqPitchIgnorant, true)
         );
     }
@@ -165,23 +165,22 @@ public class MelodyGenerator
         return nextPitch + ":" + nextRhythm;
     }
 
-    //================================================================================
-    // Private Helper Methods
-    //================================================================================
 
-    // Formats a measure string to include bar lines and a chord annotation.
+    //formats a measure string to include bar lines and a chord annotation.
     private String formatMeasure(String measureNotes, String chord) {
         return String.format("%s | %s\n", measureNotes.trim(), chord);
     }
 
     // Selects the next word (note) from a frequency map based on a preceding bigram.
 	// Notably, the bigram will always have at least one entry in the map, so long
-	// as we started with a bigram that exists in the map.
+	// as we started with a bigram that exists in the map (i think).
     private String getNextWordFromMap(Map<String, Map<String, Integer>> freq, String key) {
         if (freq.containsKey(key)) {
             return getNextWord(freq.get(key));
         }
-        return null;
+        // Fallback to a default note if the bigram is not found
+        // This prevents the generator from stopping prematurely
+        return "c4:8";
     }
 
     // Randomly selects the next word from a frequency map based on weighted probabilities.
@@ -201,10 +200,5 @@ public class MelodyGenerator
             }
         }
         return null;
-    }
-
-    // Writes a given string to a printwriter.
-    public void storeText(String t, PrintWriter p) {
-        p.println(t);
     }
 }

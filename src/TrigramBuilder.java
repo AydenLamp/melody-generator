@@ -1,8 +1,8 @@
 /*
 TrigramBuilder.java
 
-This class builds trigram frequency maps from melody text files,
-using tokens that contain various levels of information about the notes.
+This class builds trigram frequency maps from melody text files.
+It implements different algorithms that tokenize notes differently.
 */
 
 package src;

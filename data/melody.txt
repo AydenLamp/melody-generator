@@ -1,71 +1,40 @@
-This file contains a melody from Oscar Peterson's "C Jam Blues" 
-
-1 - 4
 | c5:4 a4:8 f4:8 c4:8 f4:8 a4:8 c5:8 | F
 | eb5:8 c5:8 d5:8 c5:8 r:8 bb4:8 g4:8 f4:8 | F#o
 | eb4:8 c4:8 d4:4 c4:4 r:4 | C
 | r:8 c4:8 a4:8 c5:4.5 a4:4 | A7
-
-5 - 8
 | eb4:8 c4:8 d4:4 c4:4 d4:4 | D7
 | r:8 c4:8 b4:8 c5:8 g4:8 c4:8 f4:8 c4:8 | G7
 | eb4:8 e4:8 c4:8 g3:8 f#3:4 f3:4 | C
 | e3:8 c4:8 r:4 r:8 ab3:8 a3:8 c4:8 | C
-
-9 - 12
 | eb4:8 d4:8 c4:8 bb3:8 a3:8 g3:8 f3:8 c2:8 | F
 | eb3:8 f#3:8 a3:8 c4:8 eb4:8 f4:8 d4:8 c4:8 | F#o
 | b3:8 g3:8 d4:8 b3:8 c4:8 e3:8 r:4 | C
 | r:4 r:8 a3:8 a4:8 g4:8 f#4:8 e4:8 | A7
-
-13 - 16
 | d4:8 c#4:8 c4:8 bb3:8 b3:8 a3:8 g3:8 f#3:8 | D7
 | g3:8 b3:8 d#4:8 g4:8 b4:8 d#5:8 g5:8 f5:8 | G7
 | e5:8 d5:8 c5:8 b4:8 bb4:8 d4:8 a4:8 ab4:8 | C
 | g4:8 f4:8 r:4 eb4:8 e4:8 g4:8 c5:8 | C
-
-original melody from bar 52
-
-17 - 20
 | g3:8 a3:8 c4:4 eb4:8 e4:4 c4:8 | c
 | d4:8 c4:8 r:4 r:4 r:4 | F
 | g3:8 a3:8 c4:8 eb4:8 e4:8 g4:8 e4:4 | C
 | c4:4 r:8 g#4:8 a4:4 g4:8 e4:8 | C
-
-21 - 24
 | bb3:8 g#3:8 a3:8 e4:8 g4:8 e4:8 f4:8 d4:8 | F
 | eb4:8 c4:8 a3:8 f3:8 c4:8 a3:8 c4:8 a3:8 | F
 | c4:8 a3:8 c4:8 a3:8 c4:8 e4:8 r:4 | C
 | r:8 g3:8 c4:8 a4:8 g4:4 r:4 | A
-
-25 - 28
 | r:4 r:8 c4:8 f4:8 a4:8 c5:4 | D
 | eb5:4 c5:8 g4:8 f4:8 c4:8 f#4:8 g4:8 | G
 | c4:8 g3:8 f3:8 eb3:8 e3:4 r:4 | C
 | r:4 r:4 r:4 r:4 | C
-
-original melody from bar 88
-
-29 - 32
 | a5:8 g5:8 e5:8 c5:8 b4:8 c5:8 g4:8 g#4:8 | C
 | a4:8 c5:8 d5:8 f5:8 r:8 a4:8 d#5:8 e5:8 | F
 | c5:8 g4:8 r:8 c5:8 e5:8 e4:8 d5:8 c5:8 | C
 | r:4 r:4 r:8 g5:4 c5:8 | A
-
-33 - 36
 | a5:4 r:8 a5:8 c5:8 bb4:8 g4:8 g#4:8 | F
 | a4:8 c5:8 d5:8 a5:8 eb5:8 c5:8 d5:8 c5:8 | F
 | bb4:8 g4:8 f4:8 eb4:8 e4:8 g4:8 c5:8 d5:8 | C
 | f#5:8 g5:8 c5:8 g4:8 f4:8 c4:8 eb4:8 f4:8 | A
-
-37 - 40
 | f#4:8 f#4:8 f4:8 eb4:8 c4:8 eb4:8 f4:8 eb4:8 | D
 | f#4:8 f4:8 eb4:8 c4:8 bb3:8 g3:8 b3:8 d4:8 | G
 | c4:8 g3:8 f3:8 eb3:8 e3:8 r:4 | C
 | r:4 r:4 r:4 r:8 g4:8 | C
-
-
-
-
-
-

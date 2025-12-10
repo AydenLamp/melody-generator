@@ -3,7 +3,8 @@ package src;
 /**
 MusicUtils.java
 
-This class is used for common music theory operations and string parsing.
+This class is used for string parsing, MIDI note conversions, and
+handeling the absolute to relative note conversions
 */
 
 public class MusicUtils {
@@ -117,6 +118,7 @@ public class MusicUtils {
     }
 
     // Selects the octave for the next note that minimizes the semitone distance from the previous note.
+    // this is used in the octave-ignorant melody generation algorithms
     public static String assignBestOctave(String prevNote, String nextNoteNoOctave) {
         // If next note is a rest, return as is
         if (nextNoteNoOctave.toLowerCase().startsWith("r")) {
@@ -136,15 +138,9 @@ public class MusicUtils {
         int prevOctave;
 
         // Determine previous note's MIDI pitch and octave
-        try {
-            String prevPitch = prevNote.split(":")[0];
-            prevMidi = noteNameToMidi(prevPitch);
-            prevOctave = (prevMidi / 12) - 1;
-        } catch (IllegalArgumentException e) {
-            // Fallback if parsing fails
-            prevMidi = 60;
-            prevOctave = 4;
-        }
+        String prevPitch = prevNote.split(":")[0];
+        prevMidi = noteNameToMidi(prevPitch);
+        prevOctave = (prevMidi / 12) - 1;
 
         int bestOctave = prevOctave;
         int minDiff = Integer.MAX_VALUE;
@@ -153,22 +149,18 @@ public class MusicUtils {
         int[] candidates = {prevOctave, prevOctave - 1, prevOctave + 1};
         
         for (int oct : candidates) {
-            // Basic range check (0-9 is reasonable for MIDI)
+            // only allow reasonable octives
             if (oct < 0 || oct > 9) continue;
             
             String candidateNote = nextPitchClass + oct;
-            try {
-                int candidateMidi = noteNameToMidi(candidateNote);
-                
-                if (candidateMidi > 127) continue;
+            int candidateMidi = noteNameToMidi(candidateNote);
+            
+            if (candidateMidi > 127) continue;
 
-                int diff = Math.abs(candidateMidi - prevMidi);
-                if (diff < minDiff) {
-                    minDiff = diff;
-                    bestOctave = oct;
-                }
-            } catch (IllegalArgumentException e) {
-                continue;
+            int diff = Math.abs(candidateMidi - prevMidi);
+            if (diff < minDiff) {
+                minDiff = diff;
+                bestOctave = oct;
             }
         }
 
@@ -176,6 +168,7 @@ public class MusicUtils {
     }
 
     // gets the pitch class (0-11) of the root note of a chord string
+    // this represents semitones above C
     public static int getChordRootPC(String chord) {
         String root = chord;
         if (root.length() > 1) {
@@ -217,7 +210,15 @@ public class MusicUtils {
         }
         
         String[] parts = relativeToken.split(":");
-        int interval = Integer.parseInt(parts[0]);
+        // Handle potential parsing errors if the token is malformed (e.g. "c4:8" passed by mistake)
+        int interval;
+        try {
+            interval = Integer.parseInt(parts[0]);
+        } catch (NumberFormatException e) {
+            // If parsing fails, it might be an absolute note (like our fallback "c4:8")
+            // just return it as is
+            return relativeToken;
+        }
         String duration = parts[1];
         
         // Calculate target pitch class
@@ -243,8 +244,7 @@ public class MusicUtils {
         if (nextPitchClass.equalsIgnoreCase("r")) return nextPitchClass;
         if (prevPitch.equalsIgnoreCase("r")) return nextPitchClass + "4";
 
-        // Create dummy tokens to reuse assignBestOctave logic
-        // We use duration "4" as a placeholder
+        // append a duration so we can reuse assignBestOctave 
         String prevToken = prevPitch + ":4";
         String nextTokenNoOctave = nextPitchClass + ":4";
         
