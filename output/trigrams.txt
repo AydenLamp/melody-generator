@@ -1,0 +1,63 @@
+
+--- Standard - Standard Stats ---
+Total unique tokens: 49
+Possible 2-note combinations: 2401
+Actual bigrams with followers: 168
+Bigrams with multiple options: 37
+Average options for third note: 1.37
+Bigram with most options ('r:4 r:8' -> 6 options):
+  [a3:8: 1, ab3:8: 1, c4:8: 2, g3:8: 1, g4:8: 1, g5:4: 1]
+
+--- Octave-Ignorant - Octave-Ignorant Stats ---
+Total unique tokens: 25
+Possible 2-note combinations: 625
+Actual bigrams with followers: 118
+Bigrams with multiple options: 43
+Average options for third note: 1.75
+Bigram with most options ('c:8 g:8' -> 6 options):
+  [a:8: 1, c:8: 1, f#:4: 1, f:8: 4, g#:8: 1, r:8: 1]
+
+--- Relative Scale Degree - Relative Scale Degree Stats ---
+Total unique tokens: 24
+Possible 2-note combinations: 576
+Actual bigrams with followers: 126
+Bigrams with multiple options: 50
+Average options for third note: 1.79
+Bigram with most options ('0:8 7:8' -> 7 options):
+  [0:8: 1, 4:8: 1, 5:8: 2, 6:4: 1, 8:8: 1, 9:8: 2, r:8: 1]
+
+--- Separated Rhythm-Pitch - Rhythm Stats ---
+Total unique tokens: 3
+Possible 2-note combinations: 9
+Actual bigrams with followers: 6
+Bigrams with multiple options: 4
+Average options for third note: 1.83
+Bigram with most options ('8 8' -> 3 options):
+  [4: 16, 4.5: 1, 8: 193]
+
+--- Separated Rhythm-Pitch - Pitch Stats ---
+Total unique tokens: 35
+Possible 2-note combinations: 1225
+Actual bigrams with followers: 140
+Bigrams with multiple options: 44
+Average options for third note: 1.51
+Bigram with most options ('r r' -> 8 options):
+  [a3: 1, a5: 1, ab3: 1, c4: 2, g3: 2, g4: 1, g5: 1, r: 10]
+
+--- Separated Rhythm-Pitch (Octave-Ignorant) - Rhythm Stats ---
+Total unique tokens: 3
+Possible 2-note combinations: 9
+Actual bigrams with followers: 6
+Bigrams with multiple options: 4
+Average options for third note: 1.83
+Bigram with most options ('8 8' -> 3 options):
+  [4: 16, 4.5: 1, 8: 193]
+
+--- Separated Rhythm-Pitch (Octave-Ignorant) - Pitch (Octave-Ignorant) Stats ---
+Total unique tokens: 15
+Possible 2-note combinations: 225
+Actual bigrams with followers: 85
+Bigrams with multiple options: 41
+Average options for third note: 2.06
+Bigram with most options ('c g' -> 6 options):
+  [a: 1, c: 1, f: 4, f#: 1, g#: 1, r: 1]
