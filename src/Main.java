@@ -22,7 +22,6 @@ public class Main
     private static final String MELODY_FILE = "data/melody.txt";
 
     // Main method to run the music generation process.
-    // Handles command line arguments to configure generation modes.
     public static void main (String [] args) throws Exception
     {
         new File(OUTPUT_DIR).mkdirs(); 
@@ -216,7 +215,7 @@ public class Main
         double avgOptions = (totalTrigrams > 0) ? (double) totalThirdNoteOptions / totalTrigrams : 0;
 
         out.println("Total unique tokens: " + uniqueTokens.size());
-        out.println("Possible 2-note combinations: " + possibleBigrams);
+        // out.println("Possible 2-note combinations: " + possibleBigrams);
         out.println("Actual bigrams with followers: " + totalTrigrams);
         out.println("Bigrams with multiple options: " + multiOptionBigrams.size());
         out.println("Average options for third note: " + String.format("%.2f", avgOptions));

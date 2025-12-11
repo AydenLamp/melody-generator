@@ -1,7 +1,6 @@
 
 --- Standard - Standard Stats ---
 Total unique tokens: 49
-Possible 2-note combinations: 2401
 Actual bigrams with followers: 168
 Bigrams with multiple options: 37
 Average options for third note: 1.37
@@ -10,7 +9,6 @@ Bigram with most options ('r:4 r:8' -> 6 options):
 
 --- Octave-Ignorant - Octave-Ignorant Stats ---
 Total unique tokens: 25
-Possible 2-note combinations: 625
 Actual bigrams with followers: 118
 Bigrams with multiple options: 43
 Average options for third note: 1.75
@@ -19,7 +17,6 @@ Bigram with most options ('c:8 g:8' -> 6 options):
 
 --- Relative Scale Degree - Relative Scale Degree Stats ---
 Total unique tokens: 24
-Possible 2-note combinations: 576
 Actual bigrams with followers: 126
 Bigrams with multiple options: 50
 Average options for third note: 1.79
@@ -28,7 +25,6 @@ Bigram with most options ('0:8 7:8' -> 7 options):
 
 --- Separated Rhythm-Pitch - Rhythm Stats ---
 Total unique tokens: 3
-Possible 2-note combinations: 9
 Actual bigrams with followers: 6
 Bigrams with multiple options: 4
 Average options for third note: 1.83
@@ -37,7 +33,6 @@ Bigram with most options ('8 8' -> 3 options):
 
 --- Separated Rhythm-Pitch - Pitch Stats ---
 Total unique tokens: 35
-Possible 2-note combinations: 1225
 Actual bigrams with followers: 140
 Bigrams with multiple options: 44
 Average options for third note: 1.51
@@ -46,7 +41,6 @@ Bigram with most options ('r r' -> 8 options):
 
 --- Separated Rhythm-Pitch (Octave-Ignorant) - Rhythm Stats ---
 Total unique tokens: 3
-Possible 2-note combinations: 9
 Actual bigrams with followers: 6
 Bigrams with multiple options: 4
 Average options for third note: 1.83
@@ -55,7 +49,6 @@ Bigram with most options ('8 8' -> 3 options):
 
 --- Separated Rhythm-Pitch (Octave-Ignorant) - Pitch (Octave-Ignorant) Stats ---
 Total unique tokens: 15
-Possible 2-note combinations: 225
 Actual bigrams with followers: 85
 Bigrams with multiple options: 41
 Average options for third note: 2.06
